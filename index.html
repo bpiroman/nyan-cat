@@ -13,6 +13,24 @@
   <body>
     <main>
       <img src="static/img/nyan-cat.gif" alt="Nyan Cat Gif">
+      <button onclick="copyGifUrl()">Copy</button>
     </main>
+    <script>
+        async function copyGifUrl() {
+        const gifUrl = "https://bpiroman.github.io/nyan-cat/static/img/nyan-cat.gif";
+        
+        try {
+            // Await the promise returned by writeText
+            await navigator.clipboard.writeText(gifUrl);
+            
+            // This runs only if the promise resolves (success)
+            alert("GIF link copied!");
+            
+        } catch (err) {
+            // This catches any error thrown by writeText (failure)
+            console.error('Could not copy text: ', err);
+        }
+        }
+    </script>
   </body>
 </html>
